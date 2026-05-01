@@ -114,7 +114,8 @@ class Character
         return dmg;
     }
 
-
+    virtual void save(std::ofstream& file);
+    virtual void load(std::ifstream& file);
 
     virtual ~Character() {};
 
