@@ -1,4 +1,5 @@
 #include "classes.h"
+#include "save.h"
 #include <iostream>
 #include <conio.h>
 #include <chrono>
@@ -541,10 +542,34 @@ void show_credits()
 
 void start_new_game()
 {
+delete player;
+
+std::cout << "\nChoose Class:" << std::endl;
+std::cout << "[1] Warrior" << std::endl;
+std::cout << "[2] Wizard" << std::endl;
+std::cout << "[3] Archer" << std::endl;
+std::cout << "[4] Thief" << std::endl;
+
+char class_choice;
+//USER INPUT 1 2 3 4
+
+if (class_choice == '1') {
+    Warrior player;
+}
+else if (class_choice == '2') {
+    Wizard player;
+}
+else if (class_choice == '3') {
+    Archer player;
+}
+else if (class_choice == '4') {
+    Thief player;
+}
     Warrior player;
     player_potions = 3;
     quit_to_menu = false;
 
+    std::cout << "Starting new game..." << std::endl;
     combat_result result = combat(&player);
 
     clear_screen();
@@ -563,6 +588,16 @@ void start_new_game()
     }
 
     wait_for_menu();
+}
+
+void load_game() {
+    delete player;
+    player = load_game(potions, floor);
+    if (!player) {
+        std::cout << "No valid save. Start a new game." << std::endl;
+        continue;
+    }
+    std::cout << "Loaded game." << std::endl;
 }
 
 int main()
@@ -587,6 +622,7 @@ int main()
         {
             clear_screen();
             std::cout << "Thanks for playing!\n";
+            save_game(player, potions, floor);
             break;
         }
     }
