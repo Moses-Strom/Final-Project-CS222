@@ -4,6 +4,7 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <conio.h>
 
 extern void clear_screen();
 extern void wait(int ms);
@@ -11,6 +12,7 @@ extern void print_action(const std::string& text);
 extern std::string health_bar(int hp, int max_hp);
 extern bool run_seq(const std::vector<int>& seq);
 extern std::vector<int> generate_sequence(int size);
+extern void type_text(const std::string& text, int ms);
 
 class FinalBoss : public Character
 {
@@ -50,7 +52,7 @@ void render_boss_ui(Character* player, FinalBoss& boss, const std::string& actio
     std::cout << "--------------------------------------------------\n";
     std::cout << "ACTION: " << action_text << "\n";
     std::cout << "--------------------------------------------------\n";
-    std::cout << "[1] Attack   [2] Defend   [3] Ability   [4] Item\n";
+    std::cout << "[1] Attack   [2] Defend   [3] Ability   [4] ErR0R\n";
     std::cout << "==================================================\n";
 }
 
@@ -92,6 +94,8 @@ void boss_phase_check(Character* player, FinalBoss& boss)
         boss.phase_two = true;
         boss.shield_up = true;
         boss.attack += 6;
+
+        clear_screen();
 
         print_action("\nThe boss laughs, snaps the arena lights out, and enters phase two!");
 
@@ -167,14 +171,14 @@ combat_result boss_battle(Character* player)
 
     print_action("\nThe final door opens...");
     print_action("The instert ceative name here boss steps forward.");
-    print_action("Your health is restored before the fight begins!");
+    print_action("NO POTIONS IN MY REALM HUMAN...");
+    print_action("Your health is mysteriously restored before the fight begins!");
 
     while (player->health > 0 && boss.health > 0)
     {
         render_boss_ui(player, boss, "Choose your move.");
 
-        char input;
-        std::cin >> input;
+        char input = _getch();
 
         if (input == '1')
         {
@@ -207,12 +211,8 @@ combat_result boss_battle(Character* player)
         }
         else if (input == '4')
         {
-            player->health += 25;
-            if (player->health > player->max_health)
-            {
-                player->health = player->max_health;
-            }
-            print_action("\nYou recover some HP!");
+            type_text("\nERROR\rErRoR\ERROR\reRroR\rErroR\rErRoR\r", 5);
+            print_action("Nothing happens...");
         }
         else
         {
@@ -222,6 +222,7 @@ combat_result boss_battle(Character* player)
         if (boss.health <= 0)
         {
             print_action("\nThe boss falls. You win!");
+            wait(700);
             return combat_result::win;
         }
 
@@ -239,6 +240,7 @@ combat_result boss_battle(Character* player)
         if (player->health <= 0)
         {
             print_action("\nYou fall in the final battle.");
+            wait(700);
             return combat_result::lose;
         }
 

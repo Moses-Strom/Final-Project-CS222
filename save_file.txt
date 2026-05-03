@@ -1,0 +1,7 @@
+Warrior
+64 120
+18 12 5
+0 0
+0
+11
+CPCCCPCPCP

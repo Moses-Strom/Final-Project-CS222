@@ -4,6 +4,7 @@
 #include <algorithm>
 #include <iostream>
 #include <cstdlib>
+#include <fstream>
 
 enum class EnemyStrength
 {
@@ -27,7 +28,7 @@ enum class combat_result
     win
 };
 
-std::string getEnemyStrengthName(EnemyStrength strength)
+inline std::string getEnemyStrengthName(EnemyStrength strength)
 {
     switch (strength)
     {
@@ -42,7 +43,7 @@ std::string getEnemyStrengthName(EnemyStrength strength)
     return "Unknown";
 }
 
-std::string getEnemyTypeName(EnemyType type)
+inline std::string getEnemyTypeName(EnemyType type)
 {
     switch (type)
     {
@@ -63,7 +64,7 @@ std::string getEnemyTypeName(EnemyType type)
 
 class Character
 {
-    public:
+public:
     std::string name;
     std::string characterClass;
 
@@ -153,7 +154,7 @@ public:
         health = 75;
         max_health = 75;
         attack = 26;
-        defense = 3;
+        defense = 5;
         speed = 7;
     }
 
@@ -184,7 +185,7 @@ public:
             return attack * 2;
         }
         else
-        return attack;
+            return attack;
     }
 };
 

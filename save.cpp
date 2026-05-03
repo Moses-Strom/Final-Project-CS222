@@ -3,22 +3,29 @@
 #include <string>
 #include "save.h"
 
-//save class stats inventory and progress in dungeon
+// save class stats inventory and progress in dungeon
 
-void save_game(Character* player, int potions, int floor) {
-	std::ofstream save_file("save_file.txt");
-    if (!save_file.is_open()) {
-        std::cout << "No save file created.";
+void save_game(Character* player, int potions, int current_floor, const std::string& encounter_order) {
+    if (player == nullptr) {
+        std::cout << "No game to save.\n";
+        return;
     }
 
-	player->save(save_file);
-	save_file << potions << "\n";
-	save_file << floor << "\n";
+    std::ofstream save_file("save_file.txt");
+    if (!save_file.is_open()) {
+        std::cout << "No save file created.";
+        return;
+    }
 
-	save_file.close();
+    player->save(save_file);
+    save_file << potions << "\n";
+    save_file << current_floor << "\n";
+    save_file << encounter_order << "\n";
+
+    save_file.close();
 }
 
-Character* load_game(int& potions, int& floor)
+Character* load_game(int& potions, int& current_floor, std::string& encounter_order)
 {
     std::ifstream save_file("save_file.txt");
 
@@ -34,40 +41,28 @@ Character* load_game(int& potions, int& floor)
     Character* player = nullptr;
 
     if (type == "Warrior") {
-        Warrior player;
+        player = new Warrior();
     }
     else if (type == "Wizard") {
-        Wizard player;
-    } 
+        player = new Wizard();
+    }
     else if (type == "Archer") {
-        Archer player;
+        player = new Archer();
     }
     else if (type == "Thief") {
-        Thief player;
+        player = new Thief();
     }
     else {
         std::cout << "Corrupt save.\n";
         return nullptr;
     }
 
-    int health, max_health;
-    int attack, defense, speed;
-    bool defending, dodge_next;
-
-    save_file >> health >> max_health;
-    save_file >> attack >> defense >> speed;
-    save_file >> defending >> dodge_next;
-
-    player->health = health;
-    player->max_health = max_health;
-    player->attack = attack;
-    player->defense = defense;
-    player->speed = speed;
-    player->defending = defending;
-    player->dodge_next = dodge_next;
+    player->load(save_file);
 
     save_file >> potions;
-    save_file >> floor;
+    save_file >> current_floor;
+    encounter_order = "";
+    save_file >> encounter_order;
 
     save_file.close();
 
