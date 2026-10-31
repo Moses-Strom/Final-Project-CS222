@@ -38,7 +38,7 @@ During combat, players can attack, defend, use their class ability, or consume a
 ## Character Classes
 
 | Class | Playstyle |
------------------------
+|---|---|
 | Warrior | High health and defense |
 | Wizard | High attack power, low defense|
 | Archer | Chance to perform a double attack |
