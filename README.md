@@ -102,16 +102,16 @@ Reference to code - `system("start https://www.youtube.com/watch?v=hXV5MfePBRs")
 **Project:** Final Project
 
 ## Changelog
-May 2026 -- Archived on completion  
-October 2026 -- Unarchived and Updated with `README.md` and final code that I forgot to add to the repo :sweat_smile:  
-October 2026 -- Archived
+May 2026 -- (Moses-Strom) Archived on completion  
+October 2026 -- (Moses-Strom) Unarchived and Updated with `README.md` and final code that I forgot to add to the repo :sweat_smile:  
+October 2026 -- (Moses-Strom) Archived
 
 
 **Credit**
 -----------------------
-**elswaggin** - created the save/load, inventory, and some other misc. coding (such as the credits option on main menu) 
-**JoshTDW** - created the bossfight, did most of the `classes.h`, also general help with balancing & other suggestions.
-**Me** - The rest was mostly me, if you want specifics on all that I did, feel free to reach out, I'll answer any questions.
+**elswaggin** - created the save/load, inventory, and some other misc. coding (such as the credits option on main menu)   
+**JoshTDW** - created the bossfight, did most of the `classes.h`, also general help with balancing & other suggestions.   
+**Moses-Strom** - The rest was mostly me, if you want specifics on all that I did, feel free to reach out, I'll answer any questions.   
 
 ## Attribution
 
