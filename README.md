@@ -76,6 +76,12 @@ This project was developed for Windows and uses Windows-specific libraries and c
 
 **Note:** The project uses Windows-specific headers and functions - `Windows.h` and `conio.h`, so a compatible Windows environment is required.
 
+## Background Music
+
+Background music is opened in a browser played externally through YouTube during the boss battle in `main.cpp`
+Music is not included in this repository.
+Reference to code - `system("start https://www.youtube.com/watch?v=hXV5MfePBRs");`
+
 ## Project Structure
 
 | File | Description |
@@ -96,6 +102,6 @@ This project was developed for Windows and uses Windows-specific libraries and c
 
 **Credit**
 -----------------------
-elswaggin created the save/load, inventory, and some other misc. coding (such as the credits option on main menu) 
+elswaggin - created the save/load, inventory, and some other misc. coding (such as the credits option on main menu) 
 JoshTDW - created the bossfight, did most of the `classes.h`, also general help with balancing & other suggestions.
 Me - The rest was mostly me, if you want specifics on all that I did, feel free to reach out, I'll answer any questions.
