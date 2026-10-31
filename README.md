@@ -105,3 +105,7 @@ Reference to code - `system("start https://www.youtube.com/watch?v=hXV5MfePBRs")
 **elswaggin** - created the save/load, inventory, and some other misc. coding (such as the credits option on main menu) 
 **JoshTDW** - created the bossfight, did most of the `classes.h`, also general help with balancing & other suggestions.
 **Me** - The rest was mostly me, if you want specifics on all that I did, feel free to reach out, I'll answer any questions.
+
+## Attribution
+
+Feel free to use, modify, or learn from this project. If you do, I'd appreciate credit and attribution to the original project and creator(s).
