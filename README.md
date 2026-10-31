@@ -69,7 +69,8 @@ Concepts and techniques used throughout the project include:
 
 This project was developed for Windows and uses Windows-specific libraries and console functionality.
 
-1. Download the `CS222_Final_Project` folder for the final result, the other files may not be 100% accurate. (I didn't zip it for readability)
+1. Download the `CS222_Final_Project` folder for the final result, the other files may not be 100% accurate.  
+(I didn't zip it for readability)
 2. Open the project in a compatible C++ IDE
 3. Compile the source files together
 4. Run the resulting executable
